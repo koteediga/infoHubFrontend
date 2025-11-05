@@ -12,7 +12,8 @@ export default function WeatherModule() {
     setErr('');
     setLoading(true);
     try {
-    const baseURL = import.meta.env.VITE_API_BASE_URL || '';
+   const baseURL = process.env.REACT_APP_API_BASE_URL || '';
+
 const res = await axios.get(`${baseURL}/api/weather?city=${encodeURIComponent(city)}`);
 
       setData(res.data);
