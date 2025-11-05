@@ -1,25 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import WeatherModule from './components/WeatherModule';
+import CurrencyConverter from './components/CurrencyConverter';
+import QuoteGenerator from './components/QuoteGenerator';
 
-function App() {
+export default function App() {
+  const [tab, setTab] = useState('Weather');
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+      <h1>InfoHub</h1>
+      <p style={{color:'#666'}}>Weather • Currency (INR → USD/EUR) • Motivational Quotes</p>
+
+      <nav>
+        {['Weather','Currency','Quote'].map(t => (
+          <button
+            key={t}
+            className={`tab ${tab === t ? 'active':''}`}
+            onClick={() => setTab(t)}
+          >{t}</button>
+        ))}
+      </nav>
+
+      <main>
+        {tab === 'Weather' && <WeatherModule />}
+        {tab === 'Currency' && <CurrencyConverter />}
+        {tab === 'Quote' && <QuoteGenerator />}
+      </main>
     </div>
   );
 }
-
-export default App;

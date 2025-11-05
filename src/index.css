@@ -7,7 +7,19 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+:root{ --accent:#2563eb; --muted:#666; }
+body { font-family: Inter, system-ui, Arial; margin: 0; padding: 20px; background:#f7f9fc; color:#0b1220; }
+.container { max-width: 900px; margin: 0 auto; background:#fff; padding:20px; border-radius:12px; box-shadow:0 8px 30px rgba(10,10,25,0.06); }
+nav { display:flex; gap:8px; margin-bottom:16px; }
+button.tab { padding:8px 14px; border-radius:10px; border:1px solid #e6e9ee; background:#fff; cursor:pointer; }
+button.tab.active { background:var(--accent); color:white; border-color:transparent; }
+.loading { color: var(--muted); }
+.error { color: #c62828; background:#fff4f4; padding:8px; border-radius:6px; }
+.card { padding:12px; border-radius:8px; border:1px solid #eef2f7; background:#fff; margin-top:12px; }
+input, select { padding:8px; border-radius:8px; border:1px solid #e6e9ee; margin-right:8px; }
